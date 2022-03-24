@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/MyRobot.X/dist/
+/MyRobot.X/build/
