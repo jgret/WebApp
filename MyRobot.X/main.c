@@ -45,13 +45,48 @@
                          Main application
  */
 
+char zeichen;
+char first = 1;
 
 void IOC0_ISR(void)
 {
     INTCONbits.IOCIE = 0; //IOC erstmal ausschalten
-    doLED_Toggle();
-    INTCONbits.IOCIE = 1; //IOC erstmal ausschalten
+    zeichen = 0;
+    __delay_us(30);
+
+    //RX Leitung auswerten
+    for(char cnt = 0; cnt < 8; cnt++){
+        __delay_us(104);
+        zeichen = zeichen | (inTx_GetValue() << cnt);
+
+    }
+    first = 1;
+    INTCONbits.IOCIE = 1; //IOC wieder einschalten
     
+}
+
+void blink(void) {
+    doLED_SetLow();
+   __delay_ms(100);
+   doLED_SetHigh();
+   __delay_ms(100);
+}
+
+void click(void) {
+    doSpeaker1_SetHigh();
+    doSpeaker2_SetLow();
+    __delay_us(250);
+    doSpeaker1_SetLow();
+    doSpeaker2_SetHigh();
+    __delay_us(250);
+}
+
+void motor_off() {
+    PWM3_LoadDutyValue(0); // linker motor an
+    PWM4_LoadDutyValue(0);
+    doMotorLR_SetLow();
+    doMotorRR_SetLow();
+    __delay_ms(10);
 }
 
 void main(void)
@@ -78,7 +113,8 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     
-    uint16_t t_period = 0;
+    
+    char con = 0;
     doLED_SetHigh();
     
     while (1)
@@ -93,52 +129,146 @@ void main(void)
          *
          */
         
-        PWM3_LoadDutyValue(1023);
-        PWM3_LoadDutyValue(1023);
-        doMotorLR_SetLow();
-        doMotorRR_SetLow();
-        
-        /*
         if (btn1_GetValue()) {
-            doLED_SetLow();
-        } else {
-            doLED_SetHigh();
-        }
-        */
+            con = 0;
+            
+            click();
+            blink();
+            click();
+            blink();
+       }
         
         if (btn2_GetValue()) {
-            doSpeaker1_SetHigh();
-            doSpeaker2_SetLow();
-            for (uint16_t i = 0; i < t_period; i++) {
-                __delay_us(1);
-            }
-            doSpeaker1_SetLow();
-            doSpeaker2_SetHigh();
-            for (uint16_t i = 0; i < t_period; i++) {
-                __delay_us(1);
-            }
+            con = 1;
+            
+            click();
+            blink();
+            click();
+            blink();
+            click();
+            blink();
         }
         
-        adc_result_t sens = ADC_GetConversion(aiSensorRL);
-        if (sens < 400) { // licht rechts
-            PWM3_LoadDutyValue(1023); // linker motor an
-            PWM4_LoadDutyValue(0);
-            
-            if (sens < 200) {
-                doMotorRR_SetHigh();
-                doMotorLR_SetLow();
+        if (con) {
+            switch (zeichen) {
+                case ('e'): {
+                    doLED_SetLow();
+                    break;
+                }
+                case ('a'): {
+                    doLED_SetHigh();
+                    break;
+                }
+                case ('p'): {
+                    doSpeaker1_SetHigh();
+                    doSpeaker2_SetLow();
+                    __delay_us(250);
+                    doSpeaker1_SetLow();
+                    doSpeaker2_SetHigh();
+                    __delay_us(250);
+                    break;
+                }
+                case ('I'): {
+                    PWM3_LoadDutyValue(0); // linker motor an
+                    PWM4_LoadDutyValue(0);
+                    doMotorLR_SetLow();
+                    doMotorRR_SetLow();
+                    break;
+                }
+                case('F'): {
+                    if (first) {
+                        motor_off();
+                        first = 0;
+                    }
+                    PWM3_LoadDutyValue(1023); // linker motor an
+                    PWM4_LoadDutyValue(1023);
+                    doMotorLR_SetLow();
+                    doMotorRR_SetLow();
+                    break;
+                }
+                case('B'): {
+                    if (first) {
+                        motor_off();
+                        first = 0;
+                    }
+                    PWM3_LoadDutyValue(0); // linker motor an
+                    PWM4_LoadDutyValue(0);
+                    doMotorLR_SetHigh();
+                    doMotorRR_SetHigh();
+                    break;
+                }
+                case('L'): {
+                    if (first) {
+                        motor_off();
+                        first = 0;
+                    }
+                    PWM3_LoadDutyValue(0);
+                    PWM4_LoadDutyValue(1023);
+                    doMotorLR_SetHigh();
+                    doMotorRR_SetLow();
+                    break;
+                }
+                case('l'): {
+                    if (first) {
+                        motor_off();
+                        first = 0;
+                    }
+                    PWM3_LoadDutyValue(0);
+                    PWM4_LoadDutyValue(1023);
+                    doMotorLR_SetLow();
+                    doMotorRR_SetLow();
+                    break;
+                }
+                case('R'): {
+                    if (first) {
+                        motor_off();
+                        first = 0;
+                    }
+                    PWM3_LoadDutyValue(1023);
+                    PWM4_LoadDutyValue(0);
+                    doMotorLR_SetLow();
+                    doMotorRR_SetHigh();
+                    break;
+                }
+                case('r'): {
+                    if (first) {
+                        motor_off();
+                        first = 0;
+                    }
+                    PWM3_LoadDutyValue(3);
+                    PWM4_LoadDutyValue(0);
+                    doMotorLR_SetLow();
+                    doMotorRR_SetLow();
+                    break;
+                }
             }
+        } else {
+            PWM3_LoadDutyValue(1023);
+            PWM3_LoadDutyValue(1023);
+            doMotorLR_SetLow();
+            doMotorRR_SetLow();
+            
+            adc_result_t sens = ADC_GetConversion(aiSensorRL);
+            if (sens < 400) { // licht rechts
+                PWM3_LoadDutyValue(1023); // linker motor an
+                PWM4_LoadDutyValue(0);
+
+                if (sens < 200) {
+                    doMotorRR_SetHigh();
+                    doMotorLR_SetLow();
+                }
+            }
+
+            if (sens > 600) {   // licht links
+                PWM3_LoadDutyValue(0);  
+                PWM4_LoadDutyValue(1023); // rechter motor an
+
+                if (sens > 800) {
+                    doMotorRR_SetLow();
+                    doMotorLR_SetHigh();
+                }
+            }       
         }
-        
-        if (sens > 600) {   // licht links
-            PWM3_LoadDutyValue(0);  
-            PWM4_LoadDutyValue(1023); // rechter motor an
-            
-            if (sens > 800) {
-                doMotorRR_SetLow();
-                doMotorLR_SetHigh();
-            }
-        }        
     }
 }
 /**

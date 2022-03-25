@@ -1,0 +1,15 @@
+#led
+e: led on
+a: led off
+
+#motor
+I: idle
+F: forward
+B: backward
+L: turn left
+R: turn right
+l: drive left
+r: drive right
+
+#speaker
+p: play tone
