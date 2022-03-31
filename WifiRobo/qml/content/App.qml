@@ -27,22 +27,20 @@
 **
 ****************************************************************************/
 
-import QtQuick
+import QtQuick 2.15
 import QtQuick.Window
 import RoboGUI
 
-Window {
+Item {
+    id: item
     width: Constants.width
     height: Constants.height
 
-    visible: true
-    title: "RoboGUI"
+    signal qmlSignal(msg: string)
+
 
     Screen01 {
-        btnPress.onClicked: {
-
-        }
+        btnPress.onClicked: item.qmlSignal("Message from QML")
     }
 
 }
-

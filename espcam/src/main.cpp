@@ -21,8 +21,13 @@
 
 #include "camera_pins.h"
 
+/*
 const char* ssid = "FORTI_HTL_2G4";
 const char* password = "HTLSalzburg";
+*/
+
+const char* ssid = "Handy";
+const char* password = "kkkkkkkk";
 
 void startCameraServer();
 
@@ -73,10 +78,15 @@ void setup() {
 #endif
 
   // camera init
-  esp_err_t err = esp_camera_init(&config);
-  if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
-    return;
+  
+  int connected = 0;
+  
+  while (!connected) {
+    esp_err_t err = esp_camera_init(&config);
+    if (err != ESP_OK) {
+      Serial.printf("Camera init failed with error 0x%x", err);
+      return;
+    }
   }
 
   sensor_t * s = esp_camera_sensor_get();

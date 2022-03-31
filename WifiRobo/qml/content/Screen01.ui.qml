@@ -1,6 +1,7 @@
-import QtQuick
+import QtQuick 2.15
 import QtQuick.Controls
 import RoboGUI
+import QtMultimedia 6.0
 
 Rectangle {
     width: Constants.width
