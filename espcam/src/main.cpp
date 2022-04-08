@@ -21,13 +21,15 @@
 
 #include "camera_pins.h"
 
-/*
+
 const char* ssid = "FORTI_HTL_2G4";
 const char* password = "HTLSalzburg";
-*/
 
+
+/*
 const char* ssid = "Handy";
 const char* password = "kkkkkkkk";
+*/
 
 void startCameraServer();
 
