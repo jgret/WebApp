@@ -13,6 +13,7 @@ class Widget : public QMainWindow
 
 public:
     Widget(QWidget *parent = nullptr);
+    void updateImage(QImage& img);
     ~Widget();
 
 private:

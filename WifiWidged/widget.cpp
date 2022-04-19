@@ -8,6 +8,10 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
 }
 
+void Widget::updateImage(QImage &img)
+{
+}
+
 Widget::~Widget()
 {
     delete ui;
