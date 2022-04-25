@@ -17,7 +17,10 @@ int main(int argc, char *argv[]) {
     w.show();
 
     ImageStream imgstream;
-    imgstream.openStream("http://192.168.0.53:81/stream");
+    int ret = imgstream.openStream("http://192.168.0.53:81/stream");
+    if (ret != 0) {
+        qDebug() << "failed to start stream: " << ret;
+    }
 
     return a.exec();
 }

@@ -32,3 +32,5 @@
 *.app
 /MyRobot.X/dist/
 /MyRobot.X/build/
+
+build-*
