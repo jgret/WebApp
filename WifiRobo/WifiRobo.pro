@@ -3,15 +3,18 @@ QT += \
     gui \
     network \
     multimedia \
-    openglwidgets
+    openglwidgets \
+    bluetooth
 
 SOURCES += \
     imagestream.cpp \
     main.cpp \
+    robocontrol.cpp \
     widget.cpp
 
 HEADERS += \
     imagestream.h \
+    robocontrol.h \
     widget.h
 
 FORMS += \
