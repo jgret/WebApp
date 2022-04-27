@@ -35,9 +35,11 @@ void ImageStream::dataReady()
     qDebug() << data;
 
     if (this->buffer->contains("abc")) {
-        QImage* img = new QImage(buffer);
-        buffer->split()
-        emit this->imageReady(img);
+        /*
+         *  QImage* img = new QImage(buffer);
+         *  buffer->split()
+         *  emit this->imageReady(img);
+         */
     }
 
 }
