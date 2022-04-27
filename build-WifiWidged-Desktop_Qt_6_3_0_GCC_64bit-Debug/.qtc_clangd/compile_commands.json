@@ -7,7 +7,7 @@
         "-I",
         "/home/thomas/Qt/Tools/QtCreator/share/qtcreator/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/tmp/QtCreator-NmTEsL/clang-uiheader-zrFcAi",
+        "/tmp/QtCreator-shJfzE/clang-uiheader-JxeMDI",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -28,7 +28,7 @@
         "-DQT_NETWORK_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/home/thomas/prog/WebApp/WifiWidged",
+        "/home/thomas/prog/WebApp/WifiRobo",
         "-I",
         "/home/thomas/Qt/6.3.0/gcc_64/include",
         "-I",
@@ -69,10 +69,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/home/thomas/prog/WebApp/WifiWidged/imagestream.cpp"
+        "/home/thomas/prog/WebApp/WifiRobo/imagestream.cpp"
     ],
     "directory": "/home/thomas/prog/WebApp/build-WifiWidged-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/home/thomas/prog/WebApp/WifiWidged/imagestream.cpp"
+    "file": "/home/thomas/prog/WebApp/WifiRobo/imagestream.cpp"
 },
 {
     "arguments": [
@@ -82,7 +82,7 @@
         "-I",
         "/home/thomas/Qt/Tools/QtCreator/share/qtcreator/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/tmp/QtCreator-NmTEsL/clang-uiheader-zrFcAi",
+        "/tmp/QtCreator-shJfzE/clang-uiheader-JxeMDI",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -103,7 +103,7 @@
         "-DQT_NETWORK_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/home/thomas/prog/WebApp/WifiWidged",
+        "/home/thomas/prog/WebApp/WifiRobo",
         "-I",
         "/home/thomas/Qt/6.3.0/gcc_64/include",
         "-I",
@@ -144,10 +144,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/home/thomas/prog/WebApp/WifiWidged/main.cpp"
+        "/home/thomas/prog/WebApp/WifiRobo/main.cpp"
     ],
     "directory": "/home/thomas/prog/WebApp/build-WifiWidged-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/home/thomas/prog/WebApp/WifiWidged/main.cpp"
+    "file": "/home/thomas/prog/WebApp/WifiRobo/main.cpp"
 },
 {
     "arguments": [
@@ -157,7 +157,7 @@
         "-I",
         "/home/thomas/Qt/Tools/QtCreator/share/qtcreator/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/tmp/QtCreator-NmTEsL/clang-uiheader-zrFcAi",
+        "/tmp/QtCreator-shJfzE/clang-uiheader-JxeMDI",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -178,7 +178,7 @@
         "-DQT_NETWORK_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/home/thomas/prog/WebApp/WifiWidged",
+        "/home/thomas/prog/WebApp/WifiRobo",
         "-I",
         "/home/thomas/Qt/6.3.0/gcc_64/include",
         "-I",
@@ -219,10 +219,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/home/thomas/prog/WebApp/WifiWidged/widget.cpp"
+        "/home/thomas/prog/WebApp/WifiRobo/widget.cpp"
     ],
     "directory": "/home/thomas/prog/WebApp/build-WifiWidged-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/home/thomas/prog/WebApp/WifiWidged/widget.cpp"
+    "file": "/home/thomas/prog/WebApp/WifiRobo/widget.cpp"
 },
 {
     "arguments": [
@@ -232,7 +232,7 @@
         "-I",
         "/home/thomas/Qt/Tools/QtCreator/share/qtcreator/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/tmp/QtCreator-NmTEsL/clang-uiheader-zrFcAi",
+        "/tmp/QtCreator-shJfzE/clang-uiheader-JxeMDI",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -253,7 +253,7 @@
         "-DQT_NETWORK_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/home/thomas/prog/WebApp/WifiWidged",
+        "/home/thomas/prog/WebApp/WifiRobo",
         "-I",
         "/home/thomas/Qt/6.3.0/gcc_64/include",
         "-I",
@@ -294,10 +294,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/home/thomas/prog/WebApp/WifiWidged/imagestream.h"
+        "/home/thomas/prog/WebApp/WifiRobo/imagestream.h"
     ],
     "directory": "/home/thomas/prog/WebApp/build-WifiWidged-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/home/thomas/prog/WebApp/WifiWidged/imagestream.h"
+    "file": "/home/thomas/prog/WebApp/WifiRobo/imagestream.h"
 },
 {
     "arguments": [
@@ -307,7 +307,7 @@
         "-I",
         "/home/thomas/Qt/Tools/QtCreator/share/qtcreator/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/tmp/QtCreator-NmTEsL/clang-uiheader-zrFcAi",
+        "/tmp/QtCreator-shJfzE/clang-uiheader-JxeMDI",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -328,7 +328,7 @@
         "-DQT_NETWORK_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/home/thomas/prog/WebApp/WifiWidged",
+        "/home/thomas/prog/WebApp/WifiRobo",
         "-I",
         "/home/thomas/Qt/6.3.0/gcc_64/include",
         "-I",
@@ -369,10 +369,10 @@
         "-Wno-unknown-pragmas",
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
-        "/home/thomas/prog/WebApp/WifiWidged/widget.h"
+        "/home/thomas/prog/WebApp/WifiRobo/widget.h"
     ],
     "directory": "/home/thomas/prog/WebApp/build-WifiWidged-Desktop_Qt_6_3_0_GCC_64bit-Debug/.qtc_clangd",
-    "file": "/home/thomas/prog/WebApp/WifiWidged/widget.h"
+    "file": "/home/thomas/prog/WebApp/WifiRobo/widget.h"
 },
 {
     "arguments": [
@@ -382,7 +382,7 @@
         "-I",
         "/home/thomas/Qt/Tools/QtCreator/share/qtcreator/cplusplus/wrappedQtHeaders/QtCore",
         "-I",
-        "/tmp/QtCreator-NmTEsL/clang-uiheader-zrFcAi",
+        "/tmp/QtCreator-shJfzE/clang-uiheader-JxeMDI",
         "-nostdinc",
         "-nostdinc++",
         "-pipe",
@@ -403,7 +403,7 @@
         "-DQT_NETWORK_LIB",
         "-DQT_CORE_LIB",
         "-I",
-        "/home/thomas/prog/WebApp/WifiWidged",
+        "/home/thomas/prog/WebApp/WifiRobo",
         "-I",
         "/home/thomas/Qt/6.3.0/gcc_64/include",
         "-I",

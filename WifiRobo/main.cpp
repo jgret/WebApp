@@ -1,25 +1,23 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQuickView>
-#include <QQuickItem>
-#include <QQmlComponent>
-#include "test.h"
+#include "widget.h"
 
-int main(int argc, char *argv[])
-{
-    QGuiApplication app(argc, argv);
+#include <QApplication>
+#include <QBuffer>
+#include <QImage>
+#include <QMediaPlayer>
 
-    QQuickView view;
-    view.engine()->addImportPath("qrc:/qml/imports");
-    view.setSource(QUrl("qrc:/qml/content/App.qml"));
-    if (!view.errors().isEmpty())
-        return -1;
-    view.show();
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
-    Test t;
-    QObject::connect((QObject*) view.rootObject(), SIGNAL(qmlSignal(QString)), &t, SLOT(printMessage(QString)));
+#include <QDebug>
+#include "imagestream.h"
 
-    QQuickItem* item = view.rootObject();
+int main(int argc, char *argv[]) {
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
 
-    return app.exec();
+    ImageStream imgstream;
+    imgstream.openStream("http://192.168.0.53:81/stream");
+
+    return a.exec();
 }

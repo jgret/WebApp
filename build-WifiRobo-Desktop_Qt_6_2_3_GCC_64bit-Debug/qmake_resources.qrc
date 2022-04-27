@@ -1,5 +1,0 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource prefix="/WifiRobo">
-<file alias="main.qml">/home/gret/fsst/WebApp/WifiRobo/main.qml</file>
-</qresource>
-</RCC>
