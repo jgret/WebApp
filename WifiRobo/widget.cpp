@@ -9,12 +9,15 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    img.load(":/images/cpp_is_awesome.jpg");
+    this->img = new QPixmap();
+    img->load(":/images/cpp_is_awesome.jpg");
+    this->show();
+    updateImage(img);
 }
 
 void Widget::paintEvent(QPaintEvent *event) {
-    QPainter g(this->ui->openGLWidget);
-    g.drawImage(this->ui->openGLWidget->rect(), img.toImage());
+    // QPainter g(this->ui->openGLWidget);
+    // g.drawImage(this->ui->openGLWidget->rect(), *this->img);
 }
 
 void Widget::keyPressEvent(QKeyEvent *event)
@@ -25,6 +28,12 @@ void Widget::keyPressEvent(QKeyEvent *event)
 void Widget::keyReleaseEvent(QKeyEvent *event)
 {
     qDebug() << event->key();
+}
+
+void Widget::updateImage(QPixmap *img)
+{
+    QPainter g(this->ui->openGLWidget);
+    g.drawPixmap(this->ui->openGLWidget->rect(), *this->img);
 }
 
 Widget::~Widget()

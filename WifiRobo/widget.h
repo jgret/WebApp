@@ -20,8 +20,12 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
 
+public slots:
+    void updateImage(QPixmap* img);
+
 private:
     Ui::Widget *ui;
-    QPixmap img;
+    QPixmap *img;
 };
+
 #endif // WIDGET_H

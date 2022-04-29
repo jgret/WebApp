@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>images/cpp_is_awesome.jpg</file>
+        <file>stream/test.mjpg</file>
     </qresource>
 </RCC>

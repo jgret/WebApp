@@ -1,6 +1,7 @@
 #include "imagestream.h"
 #include <QDebug>
 #include <QPixmap>
+#include <QFile>
 
 ImageStream::ImageStream(QObject *parent)
     : QObject{parent}
@@ -13,6 +14,20 @@ ImageStream::ImageStream(QObject *parent)
 
 ImageStream::~ImageStream()
 {
+    /*
+    QFile fout("test1.mjpg");
+    qDebug() << this->buffer->size();
+    if(fout.open(QIODevice::WriteOnly)) {
+        qDebug() << "file test.mjpg open";
+        QTextStream out(&fout);
+        out << *this->buffer;
+    } else {
+        qDebug() << "ERROR: file not open";
+    }
+    fout.close();
+    qDebug() << "file written";
+    */
+
     this->stream->close();
     delete this->manager;
     delete this->stream;
@@ -31,37 +46,36 @@ int ImageStream::openStream(QString ip)
 
 void ImageStream::dataReady()
 {
-    this->buffer->append(stream->readAll());
-
+    QByteArray newdata = stream->readAll();
+    this->buffer->append(newdata);
     QString data(*this->buffer);
 
-    bool found = data.contains(this->part_boundary);
+    this->buffer->remove(0, 1000);
 
-    if(!found) //I am still reading the same image
-    {
-        imageData = imageData.append(data);
+    int found = data.count(this->part_boundary);
 
-    } else // I have finished reading the image and another image is received
-    {
+    //remove the headers
+    QStringList l2= data.split("\n\r");
 
-        QImage image;
-        //remove the headers
-        QStringList l2= imageData.split("\n\r");
+    //qDebug() << "\nNEW IMAGE:";
 
-        if(l2.size()>1)
-        {
-            imageData= l2[1];
-            QByteArray arrd= l2[1].toUtf8();
-            if (image.loadFromData(arrd))
-            {
-                // QPixmap pixmap = QPixmap::fromImage(image);
-                emit imageReady(&image);
-            }
-
-            imageData.clear();
-            imageData.append(data);
-        }
-
+    if (l2[l2.size()-1].size() > 1000) {
+        QImage img;
+        img.loadFromData(l2[l2.size()-1].toUtf8());
+        emit imageReady(&img);
     }
+
+    /*
+    imageData= l2[1];
+    QByteArray arrd= l2[1].toUtf8();
+    if (image.loadFromData(arrd))
+    {
+        // QPixmap pixmap = QPixmap::fromImage(image);
+        emit imageReady(&image);
+    }
+
+    imageData.clear();
+    imageData.append(data);
+    */
 
 }
