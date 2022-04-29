@@ -13,6 +13,8 @@ private:
     QNetworkAccessManager *manager;
     QNetworkReply* stream;
     QByteArray* buffer;
+    QString imageData;
+    QString part_boundary;
 
 public:
     explicit ImageStream(QObject *parent = nullptr);

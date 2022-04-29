@@ -7,6 +7,11 @@ RoboControl::RoboControl(QObject *parent)
 
 }
 
+RoboControl::~RoboControl()
+{
+
+}
+
 void RoboControl::connectTo(QBluetoothAddress &address)
 {
 
