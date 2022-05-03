@@ -19,8 +19,12 @@
 
 #include "camera_pins.h"
 
-const char* ssid = "cablelink_0675016";
-const char* password = "83Cmb4DPv3TY=s3c";
+// const char* ssid = "cablelink_0675016";
+// const char* password = "83Cmb4DPv3TY=s3c";
+
+
+const char* ssid = "FORTI_INTERNET_2G4";
+const char* password = "HTLInternet";
 
 void startCameraServer();
 
